@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Trivia</title>
+    <link rel="stylesheet" href="app.css">
+  </head>
+  <body>
+    <header>
+      <h1>Trivia Question</h1>
+    </header>
+    <p><%- question %></p>
+    <ol>
+      <% answers.forEach(answer => { %>
+        <li><button class="btn btn-primary" id="{{$AllAttendee->id}}"><%- answer %></button></li>
+      <% }); %>
+    </ol>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+  $(".btn").click(function () {
+      let linktext = $(this).text();
+      let crctans = '<%- crctans %>'
+      if(linktext === crctans)alert('Correct!');
+      else alert('Incorrect, Please Try Again!');
+      
+  });
+
+</script>
+    <footer>
+      <dl>
+        <dt>Category</dt>
+        <dd><%- category %></dd>
+        <dt>Difficulty</dt>
+        <dd><%- difficulty %></dd>
+      </dl>
+    </footer>
+  </body>
+</html>
